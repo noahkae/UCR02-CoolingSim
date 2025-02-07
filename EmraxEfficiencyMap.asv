@@ -1,0 +1,37 @@
+% Load the CSV file
+data = readtable('FIltered_Efficiency_Map.csv'); 
+
+% Extract columns
+rpm = data{:, 1};     
+torque = data{:, 2};    
+efficiency = data{:, 3};
+
+
+
+% Fit a 5th-degree polynomial using polyfitn
+fitModel = polyfitn(inputData, efficiency, 5);
+
+% Generate grid for speed and torque
+[speedGrid, torqueGrid] = meshgrid(linspace(min(speed), max(speed), 100), ...
+                                   linspace(min(torque), max(torque), 100));
+
+% Predict efficiency using the fitted model
+efficiencyGrid = polyvaln(fitModel, [speedGrid(:), torqueGrid(:)]);
+efficiencyGrid = reshape(efficiencyGrid, size(speedGrid));
+
+
+% Create the 3D plot
+figure;
+surf(speedGrid, torqueGrid, efficiencyGrid);
+
+% Add labels and title
+xlabel('Speed (rpm)');
+ylabel('Torque (Nm)');
+zlabel('Efficiency (%)');
+title('EMRAX 228 Efficiency Map');
+
+% Customize the appearance
+shading interp;         % Smooth shading
+colorbar;               % Add a colorbar
+colormap jet;           % Use the jet color map
+view(135, 30);          % Set a good viewing angl
