@@ -29,7 +29,9 @@ surf(speedGrid, torqueGrid, efficiencyGrid);
 
 % plot formatting
 xlabel('Speed (rpm)');
+xlim([0, 5000])
 ylabel('Torque (Nm)');
+ylim([0,250])
 zlabel('Efficiency');
 zlim([0,1])
 title('EMRAX 228 Efficiency Map');
