@@ -27,6 +27,11 @@ efficiencyGrid = min(efficiencyGrid, 0.96);
 figure;
 surf(speedGrid, torqueGrid, efficiencyGrid);
 
+% save to vars
+speed = linspace(min(rpm), max(rpm), 100);
+torque = linspace(min(torque), max(torque), 100); 
+efficiency = efficiencyGrid;
+
 % plot formatting
 xlabel('Speed (rpm)');
 xlim([0, 5000])
