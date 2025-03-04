@@ -89,7 +89,7 @@ ali_rad_wall_thickness = 0.0001;
 ali_rad_conductivity = 237;
 
 % function call of Ali rad
-ali_results = generate_rad_dims(ali_rad_H, ali_rad_W, ali_rad_L, ali_rad_N, ali_rad_tube_H, ali_rad_wall_thickness, ali_rad_fin_spacing, ali_rad_conductivity);
+ali_results = calculate_radiator_params(0.120, 0.017, 0.24, 18, 0.0013, 0.0001, 0.00075, 237);
 ali_tube_H_internal = ali_results.tube_H_internal;
 ali_tube_W_internal = ali_results.tube_W_internal;
 ali_gap_H = ali_results.gap_H;
@@ -110,7 +110,7 @@ mishi_rad_wall_thickness = 0.0001;
 mishi_rad_conductivity = 237;
 
 % function call of mishi rad
-mishi_results = generate_rad_dims(mishi_rad_H, mishi_rad_W, mishi_rad_L, mishi_rad_tubes_N, mishi_rad_tube_H, mishi_rad_wall_thickness, mishi_rad_fin_spacing, mishi_rad_conductivity);
+mishi_results = calculate_radiator_params(0.127, 0.04, 0.24, 12, 0.0016, 0.0001, 0.0015, 237);
 mishi_tube_H_internal = mishi_results.tube_H_internal;
 mishi_tube_W_internal = mishi_results.tube_W_internal;
 mishi_gap_H = mishi_results.gap_H;
@@ -131,7 +131,7 @@ current_rad_wall_thickness = 0.0001;
 current_rad_conductivity = 237;
 
 % function call of current rad
-current_results = generate_rad_dims(current_rad_H, current_rad_W, current_rad_L, current_rad_tubes_N, current_rad_tube_H, current_rad_wall_thickness, current_rad_fin_spacing, current_rad_conductivity);
+current_results = calculate_radiator_params(0.20, 0.04, 0.20, 19, 0.002, 0.0001, 0.0015, 237);
 current_tube_H_internal = current_results.tube_H_internal;
 current_tube_W_internal = current_results.tube_W_internal;
 current_gap_H = current_results.gap_H;
