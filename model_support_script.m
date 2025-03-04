@@ -141,6 +141,27 @@ current_fins_N = current_results.fins_N;
 current_air_area_fins = current_results.air_area_fins;
 current_thermal_resistance_primary = current_results.thermal_resistance_primary;
 
+% mishi YXR700 Rhino rad guess values
+yxr_rad_L = 0.378968;
+yxr_rad_W = 0.04;
+yxr_rad_H = 0.258064;
+yxr_rad_tubes_N = 23;
+yxr_rad_tube_H = 0.0014;
+yxr_rad_fin_spacing = 0.001;
+yxr_rad_wall_thickness = 0.0003;
+yxr_rad_conductivity = 237;
+
+% function call of yxr rad
+yxr_results = generate_rad_dims(yxr_rad_H, yxr_rad_W, yxr_rad_L, yxr_rad_tubes_N, yxr_rad_tube_H, yxr_rad_wall_thickness, yxr_rad_fin_spacing, yxr_rad_conductivity);
+yxr_tube_H_internal = yxr_results.tube_H_internal;
+yxr_tube_W_internal = yxr_results.tube_W_internal;
+yxr_gap_H = yxr_results.gap_H;
+yxr_air_area_flow = yxr_results.air_area_flow;
+yxr_air_area_primary = yxr_results.air_area_primary;
+yxr_fins_N = yxr_results.fins_N;
+yxr_air_area_fins = yxr_results.air_area_fins;
+yxr_thermal_resistance_primary = yxr_results.thermal_resistance_primary;
+
 %--------------------------------------------------------------------------
 % function to generate radiator simulink representation variables
 function results = generate_rad_dims(radiator_H, radiator_W, radiator_L, tubes_N, tube_H, wall_thickness, fin_spacing, wall_conductivity)
