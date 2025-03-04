@@ -105,8 +105,8 @@ mishi_rad_W = 0.04;
 mishi_rad_H = 0.127;
 mishi_rad_tubes_N = 12;
 mishi_rad_tube_H = 0.0016;
-mishi_rad_fin_spacing = 0.0015;
-mishi_rad_wall_thickness = 0.0001;
+mishi_rad_fin_spacing = 0.0013;
+mishi_rad_wall_thickness = 0.0003;
 mishi_rad_conductivity = 237;
 
 % function call of mishi rad
@@ -126,8 +126,8 @@ current_rad_W = 0.04;
 current_rad_H = 0.20;
 current_rad_tubes_N = 19;
 current_rad_tube_H = 0.002;
-current_rad_fin_spacing = 0.0015;
-current_rad_wall_thickness = 0.0001;
+current_rad_fin_spacing = 0.001;
+current_rad_wall_thickness = 0.0003;
 current_rad_conductivity = 237;
 
 % function call of current rad
