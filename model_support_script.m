@@ -1,5 +1,5 @@
 % load CSV
-data = readtable('FIltered_Efficiency_Map.csv'); 
+data = readtable('data/FIltered_Efficiency_Map.csv'); 
 
 % extract cols
 rpm = data{:, 1};     
@@ -30,7 +30,7 @@ efficiency = efficiencyGrid;
 
 %--------------------------------------------------------------------------
 % load pump curve CSV
-pump_curve = readtable('davies-craig-curves.csv'); 
+pump_curve = readtable('data/davies-craig-curves.csv'); 
 
 % save EBP40 24V data
 ebp40_24v_lpm = fit_and_interpolate(pump_curve{:, 1});
