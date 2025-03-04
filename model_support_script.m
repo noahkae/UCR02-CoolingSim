@@ -162,6 +162,27 @@ yxr_fins_N = yxr_results.fins_N;
 yxr_air_area_fins = yxr_results.air_area_fins;
 yxr_thermal_resistance_primary = yxr_results.thermal_resistance_primary;
 
+% mishi crf450x rad guess values
+crf_rad_L = 0.234;
+crf_rad_W = 0.04;
+crf_rad_H = 0.124;
+crf_rad_tubes_N = 11;
+crf_rad_tube_H = 0.0014;
+crf_rad_fin_spacing = 0.001;
+crf_rad_wall_thickness = 0.0003;
+crf_rad_conductivity = 237;
+
+% function call of crf rad
+crf_results = generate_rad_dims(crf_rad_H, crf_rad_W, crf_rad_L, crf_rad_tubes_N, crf_rad_tube_H, crf_rad_wall_thickness, crf_rad_fin_spacing, crf_rad_conductivity);
+crf_tube_H_internal = crf_results.tube_H_internal;
+crf_tube_W_internal = crf_results.tube_W_internal;
+crf_gap_H = crf_results.gap_H;
+crf_air_area_flow = crf_results.air_area_flow;
+crf_air_area_primary = crf_results.air_area_primary;
+crf_fins_N = crf_results.fins_N;
+crf_air_area_fins = crf_results.air_area_fins;
+crf_thermal_resistance_primary = crf_results.thermal_resistance_primary;
+
 %--------------------------------------------------------------------------
 % function to generate radiator simulink representation variables
 function results = generate_rad_dims(radiator_H, radiator_W, radiator_L, tubes_N, tube_H, wall_thickness, fin_spacing, wall_conductivity)
