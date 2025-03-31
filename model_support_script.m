@@ -1,3 +1,8 @@
+%--------------------------------------------------------------------------
+% constants
+rho_air = 1.14; 
+
+%--------------------------------------------------------------------------
 % load CSV
 data = readtable('data/FIltered_Efficiency_Map.csv'); 
 
@@ -27,6 +32,17 @@ efficiencyGrid = min(efficiencyGrid, 0.96);
 speed = linspace(min(rpm), max(rpm), 100);
 torque = linspace(min(torque), max(torque), 100); 
 efficiency = efficiencyGrid;
+
+figure;
+surf(speedGrid, torqueGrid, efficiencyGrid, 'EdgeColor', 'none');
+colormap('winter'); % MATLAB's blue-based colormap
+colorbar;
+xlabel('RPM');
+ylabel('Torque (Nm)');
+zlabel('Efficiency');
+zlim([0,1]);
+title('Efficiency Map');
+view(135, 30); % Adjust the viewing angle
 
 %--------------------------------------------------------------------------
 % load pump curve CSV
@@ -89,7 +105,7 @@ ali_rad_wall_thickness = 0.0001;
 ali_rad_conductivity = 237;
 
 % function call of Ali rad
-ali_results = generate_rad_dims(ali_rad_H, ali_rad_W, ali_rad_L, ali_rad_N, ali_rad_tube_H, ali_rad_wall_thickness, ali_rad_fin_spacing, ali_rad_conductivity);
+ali_results = generate_rad_dims(ali_rad_H, ali_rad_W, ali_rad_L, ali_rad_N, ali_rad_tube_H, ali_rad_wall_thickness, ali_rad_fin_spacing, ali_rad_conductivity, 0.016);
 ali_tube_H_internal = ali_results.tube_H_internal;
 ali_tube_W_internal = ali_results.tube_W_internal;
 ali_gap_H = ali_results.gap_H;
@@ -110,7 +126,7 @@ mishi_rad_wall_thickness = 0.0003;
 mishi_rad_conductivity = 237;
 
 % function call of mishi rad
-mishi_results = generate_rad_dims(mishi_rad_H, mishi_rad_W, mishi_rad_L, mishi_rad_tubes_N, mishi_rad_tube_H, mishi_rad_wall_thickness, mishi_rad_fin_spacing, mishi_rad_conductivity);
+mishi_results = generate_rad_dims(mishi_rad_H, mishi_rad_W, mishi_rad_L, mishi_rad_tubes_N, mishi_rad_tube_H, mishi_rad_wall_thickness, mishi_rad_fin_spacing, mishi_rad_conductivity, 0.016);
 mishi_tube_H_internal = mishi_results.tube_H_internal;
 mishi_tube_W_internal = mishi_results.tube_W_internal;
 mishi_gap_H = mishi_results.gap_H;
@@ -131,7 +147,7 @@ current_rad_wall_thickness = 0.0003;
 current_rad_conductivity = 237;
 
 % function call of current rad
-current_results = generate_rad_dims(current_rad_H, current_rad_W, current_rad_L, current_rad_tubes_N, current_rad_tube_H, current_rad_wall_thickness, current_rad_fin_spacing, current_rad_conductivity);
+current_results = generate_rad_dims(current_rad_H, current_rad_W, current_rad_L, current_rad_tubes_N, current_rad_tube_H, current_rad_wall_thickness, current_rad_fin_spacing, current_rad_conductivity, 0.016);
 current_tube_H_internal = current_results.tube_H_internal;
 current_tube_W_internal = current_results.tube_W_internal;
 current_gap_H = current_results.gap_H;
@@ -150,9 +166,10 @@ yxr_rad_tube_H = 0.0014;
 yxr_rad_fin_spacing = 0.001;
 yxr_rad_wall_thickness = 0.0003;
 yxr_rad_conductivity = 237;
+yxr_pipe_D = 0.016; %not real
 
 % function call of yxr rad
-yxr_results = generate_rad_dims(yxr_rad_H, yxr_rad_W, yxr_rad_L, yxr_rad_tubes_N, yxr_rad_tube_H, yxr_rad_wall_thickness, yxr_rad_fin_spacing, yxr_rad_conductivity);
+yxr_results = generate_rad_dims(yxr_rad_H, yxr_rad_W, yxr_rad_L, yxr_rad_tubes_N, yxr_rad_tube_H, yxr_rad_wall_thickness, yxr_rad_fin_spacing, yxr_rad_conductivity, yxr_pipe_D);
 yxr_tube_H_internal = yxr_results.tube_H_internal;
 yxr_tube_W_internal = yxr_results.tube_W_internal;
 yxr_gap_H = yxr_results.gap_H;
@@ -161,19 +178,21 @@ yxr_air_area_primary = yxr_results.air_area_primary;
 yxr_fins_N = yxr_results.fins_N;
 yxr_air_area_fins = yxr_results.air_area_fins;
 yxr_thermal_resistance_primary = yxr_results.thermal_resistance_primary;
+yxr_pipe_A = yxr_results.liquid_pipe_A;
 
 % mishi crf450x rad guess values
-crf_rad_L = 0.234;
+crf_rad_L = 0.23;
 crf_rad_W = 0.04;
-crf_rad_H = 0.124;
+crf_rad_H = 0.128;
 crf_rad_tubes_N = 11;
 crf_rad_tube_H = 0.0014;
 crf_rad_fin_spacing = 0.001;
 crf_rad_wall_thickness = 0.0003;
 crf_rad_conductivity = 237;
+crf_pipe_D = 0.016;
 
 % function call of crf rad
-crf_results = generate_rad_dims(crf_rad_H, crf_rad_W, crf_rad_L, crf_rad_tubes_N, crf_rad_tube_H, crf_rad_wall_thickness, crf_rad_fin_spacing, crf_rad_conductivity);
+crf_results = generate_rad_dims(crf_rad_H, crf_rad_W, crf_rad_L, crf_rad_tubes_N, crf_rad_tube_H, crf_rad_wall_thickness, crf_rad_fin_spacing, crf_rad_conductivity, crf_pipe_D);
 crf_tube_H_internal = crf_results.tube_H_internal;
 crf_tube_W_internal = crf_results.tube_W_internal;
 crf_gap_H = crf_results.gap_H;
@@ -182,10 +201,14 @@ crf_air_area_primary = crf_results.air_area_primary;
 crf_fins_N = crf_results.fins_N;
 crf_air_area_fins = crf_results.air_area_fins;
 crf_thermal_resistance_primary = crf_results.thermal_resistance_primary;
+crf_pipe_A = crf_results.liquid_pipe_A;
+
+% Current Rad area for airflow
+current_rad_area = crf_air_area_flow;
 
 %--------------------------------------------------------------------------
 % function to generate radiator simulink representation variables
-function results = generate_rad_dims(radiator_H, radiator_W, radiator_L, tubes_N, tube_H, wall_thickness, fin_spacing, wall_conductivity)
+function results = generate_rad_dims(radiator_H, radiator_W, radiator_L, tubes_N, tube_H, wall_thickness, fin_spacing, wall_conductivity, liquid_pipe_D)
     % internal tube dimensions
     tube_H_internal = tube_H - 2 * wall_thickness; % [m]
     tube_W_internal = radiator_W - 2 * wall_thickness; % [m]
@@ -207,6 +230,10 @@ function results = generate_rad_dims(radiator_H, radiator_W, radiator_L, tubes_N
 
     % thermal resistance
     thermal_resistance_primary = wall_thickness / (air_area_primary * wall_conductivity); % [K/kW]
+
+    % pipe area
+    liquid_pipe_A = pi * liquid_pipe_D^2 / 4; % [m^2]
+
     
     % store results in a struct
     results = struct('tube_H_internal', tube_H_internal, ...
@@ -216,5 +243,23 @@ function results = generate_rad_dims(radiator_H, radiator_W, radiator_L, tubes_N
                      'air_area_primary', air_area_primary, ...
                      'fins_N', fins_N, ...
                      'air_area_fins', air_area_fins, ...
-                     'thermal_resistance_primary', thermal_resistance_primary);
+                     'thermal_resistance_primary', thermal_resistance_primary, ...
+                     'liquid_pipe_A', liquid_pipe_A);
 end
+
+%--------------------------------------------------------------------------
+% load fan params
+data = readtable('data/13.8VFan.csv');
+data{:, :} = max(data{:, :}, 0.01);
+fan_flow_rate = data{:, 1}./60;     
+fan_pressure = data{:, 2}; 
+fan_rpm = 6400;
+fan_diam = 0.12;
+fan_area = pi * fan_diam^2 / 4;
+figure;
+plot(fan_flow_rate, fan_pressure, '-o', 'DisplayName', '13.8V fan');
+
+xlabel('Flow Rate [m3/s]');
+ylabel('Pressure Drop [Pa]');
+title('Fan Curve');
+legend;

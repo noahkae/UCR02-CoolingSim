@@ -1,0 +1,83 @@
+[33mcommit 4fe6c7baf62dd9f33e0c8fa8424ba801e865af66[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Noah Elsayed <noah.elsayed@ucalgary.ca>
+Date:   Sun Mar 30 17:59:59 2025 -0600
+
+    clean repo
+
+[33mcommit 627e4c6b7d241f8863d82601062131502ebc0ef6[m
+Author: Noah Elsayed <noah.elsayed@ucalgary.ca>
+Date:   Thu Mar 6 11:35:31 2025 -0700
+
+    i am going insane
+
+[33mcommit c4f604c9edd3f307fdf3985207c6ce6f572016bf[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Noah Elsayed <noah.elsayed@ucalgary.ca>
+Date:   Tue Mar 4 00:23:42 2025 -0700
+
+    add crf450 rad
+
+[33mcommit d9a06bf29105ee8cd334d96e59d6946e895105ae[m
+Author: Noah Elsayed <noah.elsayed@ucalgary.ca>
+Date:   Mon Mar 3 23:37:56 2025 -0700
+
+    add single rad test sim, cfg banshee rad
+
+[33mcommit 43a272f6baf6c26a0d6d9d7338a45a30b9ae959d[m
+Author: Noah Elsayed <noah.elsayed@ucalgary.ca>
+Date:   Mon Mar 3 22:45:34 2025 -0700
+
+    configure+test rads
+
+[33mcommit bee207c7de5e62873226f8498be4d14713b4b0b7[m
+Author: Noah Elsayed <noah.elsayed@ucalgary.ca>
+Date:   Mon Mar 3 21:17:46 2025 -0700
+
+    configure rads and calc fn
+
+[33mcommit 708ee69aff7948fe6ed7e726d475afb9df4de047[m
+Author: Noah Elsayed <noah.elsayed@ucalgary.ca>
+Date:   Mon Mar 3 21:03:00 2025 -0700
+
+    rearrange file structure
+
+[33mcommit 54fe4cf81ddde528450db9001ed9c3039d777169[m
+Author: Noah Elsayed <noah.elsayed@ucalgary.ca>
+Date:   Mon Mar 3 14:32:01 2025 -0700
+
+    translate some rads, alter thermal masses
+
+[33mcommit fe2994ddde5ed9437d224eaa2756a6c6b175da11[m
+Author: Noah Elsayed <noah.elsayed@ucalgary.ca>
+Date:   Sun Mar 2 22:15:14 2025 -0700
+
+    radiator testing begins
+
+[33mcommit 3fb82d2867f795dab895b9a3aede98932f4c7b5c[m
+Author: Noah Elsayed <noah.elsayed@ucalgary.ca>
+Date:   Sun Mar 2 14:09:34 2025 -0700
+
+    components defined
+
+[33mcommit f40fb9a04424710e49fbf9b3c91c11441de521eb[m
+Author: Noah Elsayed <noah.elsayed@ucalgary.ca>
+Date:   Sat Mar 1 14:41:32 2025 -0700
+
+    Up to first decent model
+
+[33mcommit 4a44268577e83110511f045583f83645b63cc63e[m
+Author: Noah Elsayed <noah.elsayed@ucalgary.ca>
+Date:   Thu Feb 6 18:10:08 2025 -0700
+
+    fix plot x and y lims
+
+[33mcommit ba54057b2bcbbbf002125e632e31ed7fd17efb04[m
+Author: Noah Elsayed <noah.elsayed@ucalgary.ca>
+Date:   Thu Feb 6 18:07:35 2025 -0700
+
+    complete emrax efficiency map
+
+[33mcommit 8927111bad8a220c6a66c1e6470b9efcb5e92e7f[m
+Author: Noah Elsayed <noah.elsayed@ucalgary.ca>
+Date:   Thu Feb 6 17:41:37 2025 -0700
+
+    first commit
