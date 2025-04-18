@@ -182,7 +182,7 @@ yxr_pipe_A = yxr_results.liquid_pipe_A;
 
 % mishi crf450x rad guess values
 crf_rad_L = 0.23;
-crf_rad_W = 0.04;
+crf_rad_W = 0.034;
 crf_rad_H = 0.128;
 crf_rad_tubes_N = 11;
 crf_rad_tube_H = 0.0014;
